@@ -62,12 +62,19 @@
       background:black;
       position: absolute;
       top:50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.5s
     }
 
   </style>
 
   <script>
-
+    let secondHand = document.querySelector('.second-hand');
+    const updateTime = () => {
+      const time = Date.now()
+      const seconds = time.getSeconds();
+    }
 
   </script>
 </body>
