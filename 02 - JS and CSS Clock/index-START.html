@@ -64,7 +64,7 @@
       top:50%;
       transform-origin: 100%;
       transform: rotate(90deg);
-      transition: all 0.05s;
+      transition: all 0.01s;
       transition-timing-function: cubic-bezier(0, 3.36, 0.58, 1);
     }
 
@@ -72,10 +72,23 @@
 
   <script>
     let secondHand = document.querySelector('.second-hand');
+    let minuteHand = document.querySelector('.min-hand');
+    let hourHand = document.querySelector('.hour-hand');
     const updateTime = () => {
-      const time = Date.now()
+      const time = new Date();
       const seconds = time.getSeconds();
+      const secondDegs = seconds * 6 + 90
+      secondHand.style.transform = `rotate(${secondDegs}deg)`
+
+      const minutes = time.getMinutes();
+      const minuteDegs = minutes * 6 + 90
+      minuteHand.style.transform = `rotate(${minuteDegs}deg)`
+
+      const hours = time.getHours();
+      const hourDegs = hours * 6 + 90
+      hourHand.style.transform = `rotate(${hourDegs}deg)`
     }
+    setInterval(updateTime, 1000)
 
   </script>
 </body>
